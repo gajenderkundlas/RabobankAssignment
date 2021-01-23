@@ -1,0 +1,23 @@
+<h3>Portfolio</h3>
+<p>This component demonstartes fetching a portfolio from server</p>
+<div class="table-responsive">
+  <table class="table table-borderless">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+    <ng-container *ngFor="let portfolio of portFolio">
+      <tr style="border-top:1px solid #808080">
+        <td>{{portfolio.code}}</td>
+        <td>{{portfolio.name}}</td>
+        <td>{{portfolio.value |currency:'EUR':true}}</td>
+      </tr>
+      <tr *ngFor="let mandate of portfolio.mandates">
+        <td style="padding-left:20px">{{mandate.name}}</td>
+        <td style="padding-left:250px">{{mandate.allocation | number:'1.1-1'}}%</td>
+        <td>{{mandate.value|currency:'EUR':true}}</td>
+      </tr>
+    </ng-container>
+  </table>
+</div>
